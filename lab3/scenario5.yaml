@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: configmap-issue
+spec:
+ containers:
+ - name: app
+   image: nginx
+   env:
+   - name: APP_COLOR
+     valueFrom:
+       configMapKeyRef:
+         name: app-config
+         key: color
